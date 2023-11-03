@@ -89,3 +89,7 @@ class RedactingFormatter(logging.Formatter):
                                record.getMessage(), self.SEPARATOR)
         record.msg = message
         return super(RedactingFormatter, self).format(record)
+
+
+if __name__ == '__main__':
+    main()
