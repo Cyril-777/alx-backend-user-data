@@ -9,7 +9,7 @@ import os
 import mysql.connector
 
 
-PII_FIELDS: List[str] = ["name", "email", "phone", "ssn", "password"]
+PII_FIELDS = ("name", "email", "phone", "ssn", "password")
 PERSONAL_DATA_DB_NAME = "my_db"
 
 
@@ -31,7 +31,7 @@ def get_logger() -> logging.Logger:
     logger.propagate = False
 
     handler = logging.StreamHandler()
-    formatter = RedactingFormatter(PII_FIELDS)
+    formatter = RedactingFormatter(list(PII_FIELDS))
     handler.setFormatter(formatter)
     logger.addHandler(handler)
 
